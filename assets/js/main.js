@@ -60,17 +60,20 @@ var quizQuestions = [
 
 var currentQuestion = 0; // to keep a count of the question that is displayed
 var currentScore = 0; // to keep track of score
-var countdownTime = 10; // to keep the quiz time
 
+var quizTimerEl = document.querySelector('#quizTimer');
+var startquizbuttonEl = document.querySelector('#startquizButton');
 
-var quizTimerEl = document.getElementById('#quizTimer');
-var startquizbuttonEl = document.getElementById('#startquizButton');
+var welcomesectionEl = document.querySelector('#welcomeSection');
 
+var questionsectionEl = document.querySelector('#questionsSection');
 var questionEl = document.querySelector("#question");
 var answersEl = document.querySelector("#answers");
 
 // start quiz time function
-function startTimer(countdownTime){
+function startTimer(){
+  var countdownTime = 5; // to keep the quiz time
+
     // TODO: Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
     var timeInterval = setInterval(function () {
       console.log(countdownTime);
@@ -82,43 +85,73 @@ function startTimer(countdownTime){
         // stop timer
         clearInterval(timeInterval);
   
-        // call the displayMessage function
+        // call function to display alldoneSection
         // displayMessage();
       }
       
     }, 1000);
   };
 
+
 startquizbuttonEl.addEventListener("click", function(event){
   startTimer();
+  // welcomesectionEl.innerHTML="";
+
+  // add questions function call
+  addQuestion();
 });
 
+function addQuestion(){
+  // hides the welcome section display
+  welcomesectionEl.setAttribute("style", "display:none"); 
+  // welcomesectionEl.innerHTML=""; // another way to hide the welcome section display
 
-// function addQuestion(){
-//   // create the question elements
+  // display the questions and answers section
+  questionsectionEl.setAttribute("style", "display:block"); 
 
-//   // modify the text/attributes
-//   // modify one of the attributes to say right or wrong
+  //   <section style="display:none" id="questionsSection">
+  //   <h2 id="question"></h2>
+  //   <ul id="answers">
+  //   </ul>
+  // </section>
+    // creates list elements
+  // Create ordered list items
+  var li1 = document.createElement("li");
+  var li2 = document.createElement("li");
+  var li3 = document.createElement("li");
+  var li4 = document.createElement("li");
 
-//   // append all elements to something on the page
+  // modify the text/attributes
+  questionEl.textContent=quizQuestions[0].Question1;
+  li1.textContent=quizQuestions[0].answer1;
+  li2.textContent=quizQuestions[0].answer2;
+  li3.textContent=quizQuestions[0].answer3;
+  li4.textContent=quizQuestions[0].answer4;
 
-//   // for all the buttons, add event listener
+  // append all list elements to the order list to display the question's answers
+  answersEl.appendChild(li1);
+  answersEl.appendChild(li2);
+  answersEl.appendChild(li3);
+  answersEl.appendChild(li4);
+  
 
-//     // WHEN I answer a question
-//     // if answered correctly
-//     // add points
-//     // show as correct
-//     // WHEN I answer a question incorrectly
-//     // THEN time is subtracted from the clock
-//     // show as incorrect
+  // for all the buttons, add event listener
 
-//     // after the answer, 
-//     // THEN I am presented with another question
-//     // need a function call to present the question
+    // WHEN I answer a question
+    // if answered correctly
+    // add points
+    // show as correct
+    // WHEN I answer a question incorrectly
+    // THEN time is subtracted from the clock
+    // show as incorrect
 
-//     // if no other questions,
-//     // go to highscore screen
-// }
+    // after the answer, 
+    // THEN I am presented with another question
+    // need a function call to present the question
+
+    // if no other questions,
+    // go to highscore screen
+};
 
 // function startQuiz(){
 //   // timer starts and I am presented with a question
