@@ -1,3 +1,4 @@
+// Acceptance Criteria
 // GIVEN I am taking a code quiz
 // WHEN I click the start button
 // THEN a timer starts and I am presented with a question
@@ -12,16 +13,49 @@
 
 // -------------------------------------------------------------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------------------------------------------------------------------
 
-// this is the starting point for this commentary,
-// please add more steps
-// there may be more steps and corrections to be made in future
-// need a collection of objects that hold the questions
-// need to keep a count of the question that is displayed
-// need to keep score
-// need to keep the time
+// Collection of objects that hold the questions and answers
+var myQuestions = [
+  { // array [0]
+    Question1:"What day is today?",
+    answer1:"Monday",
+    answer2:"Thursday",
+    correctAnswer:"Thursday"
+  },
+  { // array [1]
+    Question2:"What day is yesterday?",
+    answer1:"Monday",
+    answer2:"Wednesday",
+    correctAnswer:"Wednesday"
+  },
+  { // array [2]
+    Question3:"What day is yesterday?",
+    answer1:"Monday",
+    answer2:"Wednesday",
+    correctAnswer:"Wednesday"
+  },
+  { // array [3]
+    Question4:"What day is yesterday?",
+    answer1:"Monday",
+    answer2:"Wednesday",
+    correctAnswer:"Wednesday"
+  },
+  { // array [4]
+    Question5:"What day is yesterday?",
+    answer1:"Monday",
+    answer2:"Wednesday",
+    correctAnswer:"Wednesday"
+  }
+]
+
+var currentQuestion = 0; // to keep a count of the question that is displayed
+var score = 0; // to keep track of score
+var time = 10; // to keep the quiz time
+
+
+var answers = document.querySelector("#answers");
+var questionEl = document.querySelector("#question");
+var startPageMessage = document.querySelector("#startPageMessage");
 
 
 // function startTimer(){
@@ -62,48 +96,6 @@
 // }
 
 // eventListener here // when i click the start button
-
-
-// -------------------------------------------------------------------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------------------------------------------------------------------
-
-
-// collection of question objects
-var questions = [
-  {
-    q: "Question 1?",
-    id: 1,  
-    answers: ["Correct", "Incorrect", "Incorrect"],
-    correct: "Correct"
-  },
-  {
-    q: "Question 2?",
-    id: 2,  
-    answers: ["Correct", "Incorrect", "Incorrect"],
-    correct: "Correct"
-  },
-  {
-    q: "Question 3?",
-    id: 3,  
-    answers: ["Correct", "Incorrect", "Incorrect"],
-    correct: "Correct"
-  },
-  {
-    q: "Question 4?",
-    id: 4,  
-    answers: ["Correct", "Incorrect", "Incorrect"],
-    correct: "Correct"
-  },
-];
-
-var currentQuestion = 0;
-var ans = 0;
-var answers = document.querySelector("#answers");
-var questionEl = document.querySelector("#question");
-var startPageMessage = document.querySelector("#startPageMessage");
-
 
 function countdown(timer=5) {
   // var timeLeft = 5;

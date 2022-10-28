@@ -10,58 +10,53 @@
 </head>
 
 <body>
-
-  <header id="startPageMessage">
-    <h1>Timed Coding Quiz</h1>
-    <p>Welcome to your code quiz!!!</p>
-    <p>This is a timed exercise; any incorrect answers will penalize your score/time by ten seconds.</p>
-    <p>Click the "Start Quiz" button to start. Best of luck to you!!!</p>
+  <header id="mainheader">
+    <h1>TIMED QUIZ</h1>
   </header>
 
-  <main>
-      <section>
-        <h2 id="question"></h2>
-        <ul id="answers">
-        </ul>
-      </section>
-  </main>
+  <nav id="navbar">
+    <h2 id="viewhighscoreHeader">View High Score</h2>
+    <h2 id="timeHeader">Time: <span id="quizTimer"></span></h2>
+  </nav>
 
+  <main id="mainSection">
+    <section style="display:block" id="welcomeSection">
+      <div>
+        <h2>Welcome to your code quiz!!!</h2>
+        <p>This is a timed exercise; any incorrect answers will penalize your score/time by ten seconds.</p>
+        <p>Click the "Start Quiz" button to start. Best of luck to you!!!</p>
+      </div>
+      <div id="welcomebuttonSection">
+        <button id="startquizButton">Start Quiz</button>
+      </div>
+    </section>
 
-  <!-- <main>
-    <section>
-      <h2 id="heading"></h2>
-      <figure id="kitten"></figure>
-      <ul id="menu">
+    <section style="display:none" id="questionsSection">
+      <h2 id="question"></h2>
+      <ul id="answers">
       </ul>
     </section>
-  </main> -->
 
-  <!-- <div class="clearfix">
-      <div class="card">
-        <h2>Sign Up</h2>
-        <form method="POST">
-          <div class="input-group">
-            <label for="email">Email</label>
-            <input type="text" name="email" id="email" placeholder="janedoe@mail.com" />
-          </div>
-          <div class="input-group">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" placeholder="supersecure123" />
-          </div>
-          <div id="msg"></div>
-          <button id="sign-up">Sign Up</button>
-        </form>
-      </div>
+    <section style="display:none" id="alldoneSection">
+      <h2>All Done!</h2>
+      <p>Your final score is <span id="finaScore"></span></p>
+      <form id="form">
+        <label for="initials">Enter your initials: </label>
+        <input type="text" name="initials" id="initials" placeholder="AA"/>
+        <button id="initialsButton">Submit</button>
+      </form>
+    </section>
 
-      <div class="card">
-        <h2>Last Registered User:</h2>
-        <p><strong>Email:</strong> <span id="user-email"></span></p>
-        <p><strong>Password:</strong> <span id="user-password"></span></p>
+    <section style="display:none" id="highscoreSection">
+      <h2>High Scores</h2>
+      <!-- Placeholder for the high scores -->
+      <div id="highscorepageButtons">
+        <button id="gobackButton">Go Back</button>
+        <button id="clearhighscoreButton">Clear High Scores</button>
       </div>
-    </div> -->
+    </section>
+  </main>
 
   <script src="./assets/js/main.js"></script>
-
 </body>
-
 </html>

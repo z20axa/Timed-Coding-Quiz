@@ -2,12 +2,8 @@ body{
   background: rgb(127, 153, 144);
 }
 
-.hidden{
-  display: none;
-}
-
-h1 {
-  font-size: 80px;
+h1, h2 {
+  font-size: 50px;
   text-align: center;
 }
 
@@ -16,5 +12,67 @@ p {
   text-align: center;
   padding-left: 120px;
   padding-right: 120px;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+#viewhighscoreHeader {
+  font-size: 30px;
+}
+
+#timeHeader {
+  font-size: 30px;
+}
+
+#mainSection {
+  display: block;
+}
+
+/* #welcomeSection {
+  display: none;
+
+}
+
+#questionsSection {
+  display: none;
+}
+
+#alldoneSection {
+  display: none;
+}
+
+#highscoreSection {
+  display: none;
+} */
+
+#welcomebuttonSection {
+  display: flex;
+  justify-content: center;
+}
+
+#startquizButton, #gobackButton, #clearhighscoreButton, #initialsButton {
+  font-size: 30px;
+  text-align: center;
+}
+
+#startquizButton:hover, #gobackButton:hover, #clearhighscoreButton:hover, #initialsButton:hover {
+  color: purple;
+}
+
+#form {
+  font-size: 30px;
+  text-align: center;
+}
+
+#highscorepageButtons {
+  display: flex;
+  justify-content: center;
+}
+
+#initials {
+  font-size: 30px;
 }
 
