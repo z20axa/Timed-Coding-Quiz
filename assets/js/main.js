@@ -1,20 +1,4 @@
-// Acceptance Criteria
-// GIVEN I am taking a code quiz
-// WHEN I click the start button
-// THEN a timer starts and I am presented with a question
-// WHEN I answer a question
-// THEN I am presented with another question
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over
-// WHEN the game is over
-// THEN I can save my initials and my score
-
-// -------------------------------------------------------------------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------------------------------------------------------------------
-
-// Collection of objects that hold the questions and answers
+// Array with collection of objects that hold the questions and answers
 var quizQuestions = [
   { // array [0]
     Question:"Commonly used data types DO NOT include: ",
@@ -58,9 +42,9 @@ var quizQuestions = [
   }
 ];
 
-var currentQuestion = 0; // to keep a count of the question that is displayed
-var currentScore = 0; // to keep track of score
-var countdownTime = 10; // to keep the quiz time
+var currentQuestion = 0; // variable to keep a count of the question that is displayed
+var currentScore = 0; // variable to keep track of the score
+var countdownTime = 10; // vairable to keep the quiz countodnw time
 
 var quizTimerEl = document.querySelector('#quizTimer');
 var startquizbuttonEl = document.querySelector('#startquizButton');

@@ -6,55 +6,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>High Scores</title>
-  <link rel="stylesheet" href="./assets/css/highscore.css" />
+  <link rel="stylesheet" href="./assets/css/highscores.css" />
 </head>
 
 <body>
   <header id="mainheader">
-    <h1>TIMED QUIZ</h1>
+    <h1>High Scores</h1>
   </header>
 
-  <nav id="navbar">
-    <h2 id="viewhighscoreHeader"><a href="./highscore.html">View High Score</a></h2>
-    <h2 id="timeHeader">Time: <span id="quizTimer"></span></h2>
-  </nav>
-
-  <main id="mainSection">
-    <section style="display:block" id="welcomeSection">
-      <div>
-        <h2>Welcome to your code quiz!!!</h2>
-        <p>This is a timed exercise; any incorrect answers will penalize your score/time by ten seconds.</p>
-        <p>Click the "Start Quiz" button to start. Best of luck to you!!!</p>
-      </div>
-      <div id="welcomebuttonSection">
-        <button id="startquizButton">Start Quiz</button>
-      </div>
-    </section>
-
-    <section style="display:none" id="questionsSection">
-      <h2 id="question"></h2>
-      <ol id="answers">
-      </ol>
-    </section>
-
-    <section style="display:none" id="alldoneSection">
-      <h2>All Done!</h2>
-      <p>Your final score is <span id="finalScore"></span></p>
-      <form id="form">
-        <label for="initials">Enter your initials: </label>
-        <input type="text" name="initials" id="initials" placeholder="AA"/>
-        <button id="initialsButton">Submit</button>
-      </form>
-    </section>
-
-    <section style="display:none" id="highscoreSection">
-      <h2>High Scores</h2>
+    <main style="display:block" id="highscoreSection">
       <!-- Placeholder for the high scores -->
       <div id="highscorepageButtons">
         <button id="gobackButton">Go Back</button>
         <button id="clearhighscoreButton">Clear High Scores</button>
       </div>
-    </section>
+    </main>
   </main>
 
   <script src="./assets/js/main.js"></script>
