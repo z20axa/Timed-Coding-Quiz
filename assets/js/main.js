@@ -69,56 +69,37 @@ var questionsectionEl = document.querySelector('#questionsSection');
 var questionEl = document.querySelector("#question");
 var answersEl = document.querySelector("#answers");
 
-  //   <section style="display:none" id="questionsSection">
-  //   <h2 id="question"></h2>
-  //   <ol id="answers">
-  //      <button></button>
-  //   </ol>
-  // </section>
-    // creates list elements
-  // Create ordered list items
-  var li1 = document.createElement("li");
-  var li2 = document.createElement("li");
-  var li3 = document.createElement("li");
-  var li4 = document.createElement("li");
+// <section style="display:none" id="questionsSection">
+//  <h2 id="question"></h2>
+//  <ol id="answers">
+//    <button></button>
+//  </ol>
+// </section>
 
-  var li1button = document.createElement('button');
-  var li2button = document.createElement('button');
-  var li3button = document.createElement('button');
-  var li4button = document.createElement('button');
+// creates list elements
+// Create ordered list items
+var li1 = document.createElement("li");
+var li2 = document.createElement("li");
+var li3 = document.createElement("li");
+var li4 = document.createElement("li");
 
-    // append all list elements to the order list to display the question's answers
-    answersEl.appendChild(li1);
-    answersEl.appendChild(li2);
-    answersEl.appendChild(li3);
-    answersEl.appendChild(li4);
-  
-    li1.appendChild(li1button);
-    li2.appendChild(li2button);
-    li3.appendChild(li3button);
-    li4.appendChild(li4button);
+var li1button = document.createElement('button');
+var li2button = document.createElement('button');
+var li3button = document.createElement('button');
+var li4button = document.createElement('button');
 
-// start quiz time function
-function startTimer(){
-    // TODO: Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
-    var timeInterval = setInterval(function () {
-      // console.log(countdownTime);
-      // subtract 1 second
-      countdownTime--;
-      quizTimerEl.textContent = countdownTime;
-  
-      if(countdownTime === 0){
-        // stop timer
-        clearInterval(timeInterval);
+// append all list elements to the order list to display the question's answers
+answersEl.appendChild(li1);
+answersEl.appendChild(li2);
+answersEl.appendChild(li3);
+answersEl.appendChild(li4);
 
-        return;
-  
-        // call function to display alldoneSection
-        // displayMessage();
-      }
-      
-    }, 1000);
-  };
+// append all the button elements to the appended list elements above to display the question's answers
+li1.appendChild(li1button);
+li2.appendChild(li2button);
+li3.appendChild(li3button);
+li4.appendChild(li4button);
+
 
 startquizbuttonEl.addEventListener("click", function(event){
   startTimer();
@@ -127,6 +108,28 @@ startquizbuttonEl.addEventListener("click", function(event){
   // add questions function call
   addQuestion();
 });
+
+// start quiz time function
+function startTimer(){
+  // TODO: Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
+  var timeInterval = setInterval(function () {
+    // console.log(countdownTime);
+    // subtract 1 second
+    countdownTime--;
+    quizTimerEl.textContent = countdownTime;
+
+    if(countdownTime === 0){
+      // stop timer
+      clearInterval(timeInterval);
+
+      return;
+
+      // call function to display alldoneSection
+      // displayMessage();
+    }
+    
+  }, 1000);
+};
 
 function addQuestion(){
   // hides the welcome section display
@@ -144,55 +147,53 @@ function addQuestion(){
   li4button.textContent=quizQuestions[currentQuestion].answer4;
 };
 
+// event listener for all the buttons, 
+li1button.addEventListener("click", function(event){
+  checkAnswers(event);
+    
+  // add questions function call
+  addQuestion();
+});
+
+li2button.addEventListener("click", function(event){
+  checkAnswers(event);
+    
+  // add questions function call
+  addQuestion();
+});
+
+li3button.addEventListener("click", function(event){
+  checkAnswers(event);
+    
+  // add questions function call
+  addQuestion();
+});
+
+li4button.addEventListener("click", function(event){
+  checkAnswers(event);
+    
+  // add questions function call
+  addQuestion();
+});
+
 function checkAnswers(event){
   var child = event.target;
   // console.log(child);
   // console.log(child.innerText);
-
-    if(child.innerText===quizQuestions[currentQuestion].correctAnswer){
-      console.log("You got it right!");
-      currentScore+=10;
-    }
-    else {
-      console.log("You got it wrong!")
-      countdownTime-=20;
-      currentScore+=0;   
-    }
-
-    currentQuestion++;
-
-    console.log(countdownTime);
-    console.log(currentScore);
-};
-
-  // event listener for all the buttons, 
-
-  li1button.addEventListener("click", function(event){
-    checkAnswers(event);
-    
-    // add questions function call
-    addQuestion();
-      
-  });
-
-  li2button.addEventListener("click", function(event){
-    checkAnswers(event);
-    
-    // add questions function call
-    addQuestion();
-  });
-
-  li3button.addEventListener("click", function(event){
-    checkAnswers(event);
-    
-    // add questions function call
-    addQuestion();
-  });
-
-  li4button.addEventListener("click", function(event){
-    checkAnswers(event);
-    
-    // add questions function call
-    addQuestion();
-  });
+  
+  if(child.innerText===quizQuestions[currentQuestion].correctAnswer){
+    console.log("You got it right!");
+    currentScore+=10;
+  }
+  else {
+    console.log("You got it wrong!")
+    countdownTime-=20;
+    currentScore+=0;   
+  }
+  
+  currentQuestion++;
+  
+  console.log(countdownTime);
+  console.log(currentScore);
+  };
 
