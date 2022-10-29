@@ -59,7 +59,8 @@ p {
 }
 
 #startquizButton:hover, #gobackButton:hover, #clearhighscoreButton:hover, #initialsButton:hover {
-  color: purple;
+  color: black;
+  background-color: purple;
 }
 
 #form {
