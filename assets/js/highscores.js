@@ -16,9 +16,10 @@ function renderquizScore(){
     highscoreSection.textContent = '1. ' + initials + ' - ' + quizscore;
 };
 
+// function call to render/display the initals and quiz score
 renderquizScore();
 
-// function declaration to clear the local storage
+// event listenr to clear the local storage
 clearhighscoreButton.addEventListener('click', function(event){
     localStorage.setItem("Initials", JSON.stringify(""));
     localStorage.setItem("QuizScore", JSON.stringify(""));
