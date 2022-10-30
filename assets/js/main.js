@@ -185,10 +185,10 @@ li4button.addEventListener("click", function(event){
 initialsButton.addEventListener("click", function(event){
   event.preventDefault();
 
-  // checks to make sure initial input is not blank
-  if (initials === "") {
-    displayMessage("error", "Initials cannot be blank");
-  };
+  // // checks to make sure initial input is not blank
+  // if(initials === ""){
+  //   alert("Initials cannot be blank!!!");
+  // };
 
   // store initals and quiz score to local storage 
   localStorage.setItem("Initials", initials);
