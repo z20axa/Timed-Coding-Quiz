@@ -42,10 +42,6 @@ var quizQuestions = [
   }
 ];
 
-var currentquestionIndex = 0; // variable to keep a count of the question that is displayed
-var quizScore = 0; // variable to keep track of the score
-var countdownTime = 60; // vairable to keep the quiz countodnw time
-
 // doc variable declarations 
 var quizTimerEl = document.querySelector('#quizTimer');
 var startquizbuttonEl = document.querySelector('#startquizButton');
@@ -55,8 +51,13 @@ var questionEl = document.querySelector("#question");
 var answersEl = document.querySelector("#answers");
 var answerMessage = document.querySelector('#answerMessage');
 var alldoneSection = document.querySelector('#alldoneSection');
-var initials = document.querySelector('#initials').value;
+var initials = document.querySelector('#initials');
 var initialsButton = document.querySelector('#initialsButton');
+var finalScore = document.querySelector('#finalScore');
+
+var currentquestionIndex = 0; // variable to keep a count of the question that is displayed
+var countdownTime = 60; // vairable to keep the quiz countodnw time
+var quizScore = 0; // variable to keep track of the score
 
 // create ordered list elements
 var li1 = document.createElement("li");
@@ -93,16 +94,8 @@ function startTimer(){
 
     if(countdownTime <= 0 || currentquestionIndex > 4){
       clearInterval(timeInterval); // stop the quiz countdown time
-      
-      welcomesectionEl.setAttribute("style", "display:none");  // hides the welcome section display
-      questionsectionEl.setAttribute("style", "display:none"); // hides the questions and answers section
-      answerMessage.setAttribute("style", "display:none"); // hides answer correct/wrong section  
 
-      alldoneSection.setAttribute("style", "display:block"); // display the all done section
-
-      // call function to display alldoneSection
-      // displayMessage();
-      return;
+      displayalldoneSection();
     }
   }, 1000);
 };
@@ -154,6 +147,17 @@ function checkAnswers(event){
   console.log(quizScore);
   };
 
+// function declaration to display the all done section
+function displayalldoneSection(){
+  welcomesectionEl.setAttribute("style", "display:none");  // hides the welcome section display
+  questionsectionEl.setAttribute("style", "display:none"); // hides the questions and answers section
+  answerMessage.setAttribute("style", "display:none"); // hides answer correct/wrong section  
+
+  alldoneSection.setAttribute("style", "display:block"); // display the all done section
+
+  finalScore.textContent = quizScore; // modify the text/attributes for the final quiz score for display
+};
+
 // event listerner to start quiz and countdown time
 startquizbuttonEl.addEventListener("click", function(event){
   startTimer(); // function call to start the quiz countdown time
@@ -183,7 +187,7 @@ li4button.addEventListener("click", function(event){
 
 // event listener to the initals submit button 
 initialsButton.addEventListener("click", function(event){
-  event.preventDefault();
+  // event.preventDefault();
 
   // // checks to make sure initial input is not blank
   // if(initials === ""){
@@ -191,7 +195,7 @@ initialsButton.addEventListener("click", function(event){
   // };
 
   // store initals and quiz score to local storage 
-  localStorage.setItem("Initials", initials);
+  localStorage.setItem("Initials", initials.value);
   localStorage.setItem("QuizScore", quizScore);
 });
 
