@@ -42,9 +42,9 @@ var quizQuestions = [
   }
 ];
 
-var currentQuestion = 0; // variable to keep a count of the question that is displayed
-var currentScore = 0; // variable to keep track of the score
-var countdownTime = 100; // vairable to keep the quiz countodnw time
+var currentquestionIndex = 0; // variable to keep a count of the question that is displayed
+var quizScore = 0; // variable to keep track of the score
+var countdownTime = 60; // vairable to keep the quiz countodnw time
 
 // doc variable declarations 
 var quizTimerEl = document.querySelector('#quizTimer');
@@ -54,6 +54,9 @@ var questionsectionEl = document.querySelector('#questionsSection');
 var questionEl = document.querySelector("#question");
 var answersEl = document.querySelector("#answers");
 var answerMessage = document.querySelector('#answerMessage');
+var alldoneSection = document.querySelector('#alldoneSection');
+var initials = document.querySelector('#initials').value;
+var initialsButton = document.querySelector('#initialsButton');
 
 // create ordered list elements
 var li1 = document.createElement("li");
@@ -88,13 +91,18 @@ function startTimer(){
     countdownTime--;
     quizTimerEl.textContent = countdownTime; // modify the text/attributes the quiz time element for display
 
-    if(countdownTime===0){
+    if(countdownTime <= 0 || currentquestionIndex > 4){
       clearInterval(timeInterval); // stop the quiz countdown time
+      
+      welcomesectionEl.setAttribute("style", "display:none");  // hides the welcome section display
+      questionsectionEl.setAttribute("style", "display:none"); // hides the questions and answers section
+      answerMessage.setAttribute("style", "display:none"); // hides answer correct/wrong section  
 
-      return;
+      alldoneSection.setAttribute("style", "display:block"); // display the all done section
 
       // call function to display alldoneSection
       // displayMessage();
+      return;
     }
   }, 1000);
 };
@@ -106,12 +114,12 @@ function addQuestion(){
 
   questionsectionEl.setAttribute("style", "display:block"); // display the questions and answers section
 
-  // modify the text/attributes
-  questionEl.textContent=quizQuestions[currentQuestion].Question;
-  li1button.textContent=quizQuestions[currentQuestion].answer1;
-  li2button.textContent=quizQuestions[currentQuestion].answer2;
-  li3button.textContent=quizQuestions[currentQuestion].answer3;
-  li4button.textContent=quizQuestions[currentQuestion].answer4;
+  // modify the questions and asnwer choices text/attributes
+  questionEl.textContent=quizQuestions[currentquestionIndex].Question;
+  li1button.textContent=quizQuestions[currentquestionIndex].answer1;
+  li2button.textContent=quizQuestions[currentquestionIndex].answer2;
+  li3button.textContent=quizQuestions[currentquestionIndex].answer3;
+  li4button.textContent=quizQuestions[currentquestionIndex].answer4;
 };
 
 // function declaration to check if the answer is correct or wrong 
@@ -121,57 +129,69 @@ function checkAnswers(event){
   // console.log(child.innerText);
   
   // to check if the answer is correct 
-  if(child.innerText===quizQuestions[currentQuestion].correctAnswer){
+  if(child.innerText === quizQuestions[currentquestionIndex].correctAnswer){
     console.log("You got it right!");
-    // answerMessage.setAttribute("style", "display:block"); 
-    // answerMessage.textContent = "You got it right!";
-    currentScore+=10; // if the answer is correct adds 10 points to the quiz score
+
+    answerMessage.setAttribute("style", "display:block"); // display answer correct/wrong section  
+    answerMessage.textContent = "You got it right!"; // modify the text/attributes to show correct message
+
+    quizScore+=10; // if the answer is correct adds 10 points to the quiz score
+
   } else // to check if the answer is wrong 
   {
-    console.log("You got it wrong!")
-    // answerMessage.setAttribute("style", "display:block"); 
-    // answerMessage.textContent = "You got it wrong!";
+    console.log("You got it wrong!");
+
+    answerMessage.setAttribute("style", "display:block"); // display answer correct/wrong section  
+    answerMessage.textContent = "You got it wrong!"; // modify the text/attributes to show wrong message 
+
     countdownTime-=10; // time penalty, if the answer is wrong deducts 10 seconds from the quiz countdown time
-    currentScore+=0; // if the answer is wrong no points add it to the quiz score
-  };
-  
-  currentQuestion++; // question index to go the next questions after checking the previous question answers 
-  
-  console.log(countdownTime);
-  console.log(currentScore);
+    quizScore+=0; // if the answer is wrong no points add it to the quiz score
   };
 
-// start quiz countdown time click event listerner 
+  currentquestionIndex++; // increase index to go to the next question
+
+  console.log(countdownTime);
+  console.log(quizScore);
+  };
+
+// event listerner to start quiz and countdown time
 startquizbuttonEl.addEventListener("click", function(event){
   startTimer(); // function call to start the quiz countdown time
-  
   addQuestion(); // function call to add the quiz question and answer choices
 });
 
 // event listener for all the questions' answer buttons
 li1button.addEventListener("click", function(event){
   checkAnswers(event); // function call to check if the answer is correct or wrong 
-    
   addQuestion(); // function call to add the quiz question and answer choices
 });
 
 li2button.addEventListener("click", function(event){
   checkAnswers(event); // function call to check if the answer is correct or wrong 
-    
   addQuestion(); // function call to add the quiz question and answer choices
 });
 
 li3button.addEventListener("click", function(event){
   checkAnswers(event); // function call to check if the answer is correct or wrong 
-    
   addQuestion(); // function call to add the quiz question and answer choices
 });
 
 li4button.addEventListener("click", function(event){
   checkAnswers(event); // function call to check if the answer is correct or wrong 
-    
   addQuestion(); // function call to add the quiz question and answer choices
 });
 
+// event listener to the initals submit button 
+initialsButton.addEventListener("click", function(event){
+  event.preventDefault();
 
+  // checks to make sure initial input is not blank
+  if (initials === "") {
+    displayMessage("error", "Initials cannot be blank");
+  };
+
+  // store initals and quiz score to local storage 
+  localStorage.setItem("Initials", initials);
+  localStorage.setItem("QuizScore", quizScore);
+});
 
