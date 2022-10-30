@@ -193,8 +193,7 @@ initialsButton.addEventListener("click", function(event){
   // }else{
 
   // store initals and quiz score to local storage 
-  localStorage.setItem("Initials", initials.value);
-  localStorage.setItem("QuizScore", quizScore);
-  };
+  localStorage.setItem("Initials", JSON.stringify(initials.value));
+  localStorage.setItem("QuizScore", JSON.stringify(quizScore));
 });
 
