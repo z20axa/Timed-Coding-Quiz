@@ -1,20 +1,16 @@
 
+var highscoreSection = document.querySelector('#highscoreSection');
+//
+function renderquizScore() {
+  var initials = localStorage.getItem("Initials");
+  var quizscore = localStorage.getItem("QuizScore");
 
-function displayMessage(type, message) {
-  msgDiv.textContent = message;
-  msgDiv.setAttribute("class", type);
-}
-
-function renderLastRegistered() {
-  var email = localStorage.getItem("email");
-  var password = localStorage.getItem("password");
-
-  if (!email || !password) {
+  if (!initials || !quizscore){
     return;
-  }
+  };
 
-  userEmailSpan.textContent = email;
-  userPasswordSpan.textContent = password;
-}
+  highscoreSection.textContent = '1. ' + initials + '- ' + quizscore;
 
-renderLastRegistered();
+};
+
+renderquizScore();

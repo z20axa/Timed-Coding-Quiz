@@ -187,15 +187,14 @@ li4button.addEventListener("click", function(event){
 
 // event listener to the initals submit button 
 initialsButton.addEventListener("click", function(event){
-  // event.preventDefault();
-
   // // checks to make sure initial input is not blank
-  // if(initials === ""){
+  // if(initials.value === ""){
   //   alert("Initials cannot be blank!!!");
-  // };
+  // }else{
 
   // store initals and quiz score to local storage 
   localStorage.setItem("Initials", initials.value);
   localStorage.setItem("QuizScore", quizScore);
+  };
 });
 
