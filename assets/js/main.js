@@ -77,10 +77,10 @@ var li4button = document.createElement('button');
 // li3.setAttribute("style", "font-size:30");
 // li4.setAttribute("style", "font-size:30");
 
-li1button.setAttribute("style", "font-size:20px; margin:5px");
-li2button.setAttribute("style", "font-size:20px; margin:5px");
-li3button.setAttribute("style", "font-size:20px; margin:5px");
-li4button.setAttribute("style", "font-size:20px; margin:5px");
+li1button.setAttribute("style", "width: 175px; font-size:20px; margin:5px;");
+li2button.setAttribute("style", "width: 175px; font-size:20px; margin:5px;");
+li3button.setAttribute("style", "width: 175px; font-size:20px; margin:5px;");
+li4button.setAttribute("style", "width: 175px; font-size:20px; margin:5px;");
 
 // append all list elements to the order list to display the question's answers
 answersEl.appendChild(li1);
