@@ -71,6 +71,17 @@ var li2button = document.createElement('button');
 var li3button = document.createElement('button');
 var li4button = document.createElement('button');
 
+  // modify the questions and asnwer choices text/attributes
+// li1.setAttribute("style", "font-size:30");
+// li2.setAttribute("style", "font-size:30");
+// li3.setAttribute("style", "font-size:30");
+// li4.setAttribute("style", "font-size:30");
+
+li1button.setAttribute("style", "font-size:20px; margin:5px");
+li2button.setAttribute("style", "font-size:20px; margin:5px");
+li3button.setAttribute("style", "font-size:20px; margin:5px");
+li4button.setAttribute("style", "font-size:20px; margin:5px");
+
 // append all list elements to the order list to display the question's answers
 answersEl.appendChild(li1);
 answersEl.appendChild(li2);
@@ -107,12 +118,14 @@ function addQuestion(){
 
   questionsectionEl.setAttribute("style", "display:block"); // display the questions and answers section
 
+  if(currentquestionIndex < 5){
   // modify the questions and asnwer choices text/attributes
   questionEl.textContent=quizQuestions[currentquestionIndex].Question;
   li1button.textContent=quizQuestions[currentquestionIndex].answer1;
   li2button.textContent=quizQuestions[currentquestionIndex].answer2;
   li3button.textContent=quizQuestions[currentquestionIndex].answer3;
   li4button.textContent=quizQuestions[currentquestionIndex].answer4;
+};
 };
 
 // function declaration to check if the answer is correct or wrong 
@@ -187,13 +200,16 @@ li4button.addEventListener("click", function(event){
 
 // event listener to the initals submit button 
 initialsButton.addEventListener("click", function(event){
-  // // checks to make sure initial input is not blank
-  // if(initials.value === ""){
-  //   alert("Initials cannot be blank!!!");
-  // }else{
-
+event.preventDefault();
+  // checks to make sure initial input is not blank
+  if(initials.value === ""){
+    alert("Initials cannot be blank!!!");
+  }else{
   // store initals and quiz score to local storage 
   localStorage.setItem("Initials", JSON.stringify(initials.value));
   localStorage.setItem("QuizScore", JSON.stringify(quizScore));
+
+  window.location.href="highscores.html";
+  };
 });
 
