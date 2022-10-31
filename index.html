@@ -6,20 +6,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Timed Coding Quiz</title>
+  <!-- linking CSS style sheet to this HTML -->
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
 <body>
+  <!-- maing header section -->
   <header id="mainheader">
     <h1>TIMED QUIZ</h1>
   </header>
 
+  <!-- navigation area to display the high score and time countdown -->
   <nav id="navbar">
     <h2 id="viewhighscoreHeader"><a href="./highscores.html">View High Score</a></h2>
     <h2 id="timeHeader">Time: <span id="quizTimer"></span></h2>
   </nav>
 
+  <!-- main page section to display the quiz welcome, questions, and all done sections -->
   <main id="mainSection">
+    <!-- quiz welcome section  -->
     <section style="display:block" id="welcomeSection">
       <div>
         <h2>Welcome to your code quiz!!!</h2>
@@ -31,15 +36,22 @@
       </div>
     </section>
 
+    <!-- quiz questions and answers section -->
     <section style="display:none" id="questionsSection">
-      <h2 id="question"></h2>
+      <!-- questions will be created/modified/appended by JS code -->
+      <h2 id="question">
+      </h2>
+
+      <!-- answers list items and buttons created/modified/appended by JS code -->
       <ol id="answers">
       </ol>
     </section>
 
+    <!-- quiz all done section -->
     <section style="display:none" id="alldoneSection">
       <h2>All Done!</h2>
       <p>Your final score is <span id="finalScore"></span></p>
+      <!-- form to fill out the initials and submit score to the local storage -->
       <form id="form">
         <label for="initials">Enter your initials: </label>
         <input type="text" name="initials" id="initials"/>
@@ -47,9 +59,11 @@
       </form>
     </section>
 
+    <!-- to display correc or wrong message -->
     <footer style="display:none" id="answerMessage"></footer>
   </main>
 
+  <!-- linking JS to this HTML -->
   <script src="./assets/js/main.js"></script>
 </body>
 </html>

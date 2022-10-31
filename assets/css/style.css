@@ -2,7 +2,7 @@ body{
   margin: 0;
   padding: 0;
   font-size: 100%;
-  background: rgb(127, 153, 144);
+  background: rgb(189 205 200);
 
 }
 
@@ -25,10 +25,12 @@ p {
 
 #viewhighscoreHeader {
   font-size: 30px;
+  margin-left: 50px;
 }
 
 #timeHeader {
   font-size: 30px;
+  margin-right: 50px;
 }
 
 #mainSection {
@@ -50,6 +52,17 @@ p {
   background-color: purple;
 }
 
+#question {
+  font-size: 40px;
+  text-align: center;
+  /* margin-left: 50px; */
+}
+
+#answers {
+  font-size: 25px;
+  text-align: center;
+}
+
 #form {
   font-size: 30px;
   text-align: center;
@@ -68,3 +81,5 @@ p {
   font-size: 30px;
   text-align: center;
 }
+
+
