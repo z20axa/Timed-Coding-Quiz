@@ -4,4 +4,41 @@ body{
     font-size: 100%;
     background: rgb(127, 153, 144);
   }
-  
+
+/* styling for the main heading */
+h1 {
+  font-size: 50px;
+  margin-left: 200px;
+  margin-bottom: 10px;
+}
+
+/* styling for the display quiz score section  */
+#highscoreDisplay {
+  font-size: 30px;
+  margin-left: 200px;
+  background: gray;
+  margin-right: 500px;
+}
+
+/* aplying flex properties to the buttons div section */
+#highscorepageButtons{
+  display: flex;
+  align-content: space-between;
+  margin-left: 190px;
+}
+
+ /* styling for the butons */
+#gobackButton, #clearhighscoreButton {
+  background-color: #f1f1f1;
+  margin: 10px;
+  text-align: center;
+  font-size: 30px;
+}
+
+/* hover styling for the buttons */
+#gobackButton:hover, #clearhighscoreButton:hover {
+  color: black;
+  background-color: purple;
+}
+
+

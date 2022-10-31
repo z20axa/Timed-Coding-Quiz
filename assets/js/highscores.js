@@ -1,5 +1,5 @@
 // doc variable declarations 
-var highscoreSection = document.querySelector('#highscoreSection');
+var highscoreSection = document.querySelector('#highscoreDisplay');
 var clearhighscoreButton = document.querySelector('#clearhighscoreButton');
 
 // function declaration to get the items from the local storage and for display
@@ -21,6 +21,5 @@ renderquizScore();
 
 // event listenr to clear the local storage
 clearhighscoreButton.addEventListener('click', function(event){
-    localStorage.setItem("Initials", JSON.stringify(""));
-    localStorage.setItem("QuizScore", JSON.stringify(""));
+    localStorage.clear(); // clears the local storage
 });
