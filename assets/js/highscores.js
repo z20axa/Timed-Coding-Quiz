@@ -8,7 +8,7 @@ function renderquizScore(){
   var quizscore = JSON.parse(localStorage.getItem("QuizScore")); // get quiz score from local storage
 
     // checks if local storage items are empty
-    if (!initials || !quizscore){
+    if (initials===null || quizscore===null){
         return;
     };
 
@@ -19,7 +19,7 @@ function renderquizScore(){
 // function call to render/display the initals and quiz score
 renderquizScore();
 
-// event listenr to clear the local storage
+// event listener to clear the local storage
 clearhighscoreButton.addEventListener('click', function(event){
     localStorage.clear(); // clears the local storage
 });

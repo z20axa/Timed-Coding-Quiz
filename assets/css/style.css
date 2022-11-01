@@ -54,6 +54,12 @@ p {
   background-color: purple;
 }
 
+.answerButtons:hover {
+  color: black;
+  background-color: purple;
+}
+
+
 #question {
   font-size: 40px;
   text-align: center;

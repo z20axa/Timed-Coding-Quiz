@@ -58,6 +58,7 @@ var finalScore = document.querySelector('#finalScore');
 var currentquestionIndex = 0; // variable to keep a count of the question that is displayed
 var countdownTime = 60; // vairable to keep the quiz countodnw time
 var quizScore = 0; // variable to keep track of the score
+var maxquizQuestions = 5; // variable to keep track of the number of quiz questions 
 
 // create ordered list elements
 var li1 = document.createElement("li");
@@ -71,16 +72,17 @@ var li2button = document.createElement('button');
 var li3button = document.createElement('button');
 var li4button = document.createElement('button');
 
-  // modify the questions and asnwer choices text/attributes
-// li1.setAttribute("style", "font-size:30");
-// li2.setAttribute("style", "font-size:30");
-// li3.setAttribute("style", "font-size:30");
-// li4.setAttribute("style", "font-size:30");
-
+// modify attributes to add styling to each question answer buttons
 li1button.setAttribute("style", "width: 175px; font-size:20px; margin:5px;");
 li2button.setAttribute("style", "width: 175px; font-size:20px; margin:5px;");
 li3button.setAttribute("style", "width: 175px; font-size:20px; margin:5px;");
 li4button.setAttribute("style", "width: 175px; font-size:20px; margin:5px;");
+
+// add a class attribute to each answer button to then grabbed it and do hover style in CSS file
+li1button.classList.add('answerButtons');
+li2button.classList.add('answerButtons');
+li3button.classList.add('answerButtons');
+li4button.classList.add('answerButtons');
 
 // append all list elements to the order list to display the question's answers
 answersEl.appendChild(li1);
@@ -94,7 +96,9 @@ li2.appendChild(li2button);
 li3.appendChild(li3button);
 li4.appendChild(li4button);
 
-// function declaration to start quiz countown time 
+/** function declaration to start quiz countown time 
+ * 
+ */
 function startTimer(){
   // `setInterval()` method to call a function to be executed every 1000 milliseconds
   var timeInterval = setInterval(function () {
@@ -111,24 +115,30 @@ function startTimer(){
   }, 1000);
 };
 
-// function declaration to add the quiz question and answer choices 
+/** function declaration to add the quiz question and answer choices 
+ * 
+ */
 function addQuestion(){
   welcomesectionEl.setAttribute("style", "display:none");  // hides the welcome section display
   // welcomesectionEl.innerHTML=""; // another way to hide the welcome section display
 
   questionsectionEl.setAttribute("style", "display:block"); // display the questions and answers section
 
-  if(currentquestionIndex < 5){
+  // capping the index at the max number of quiz questions 
+  if(currentquestionIndex < maxquizQuestions){
   // modify the questions and asnwer choices text/attributes
   questionEl.textContent=quizQuestions[currentquestionIndex].Question;
   li1button.textContent=quizQuestions[currentquestionIndex].answer1;
   li2button.textContent=quizQuestions[currentquestionIndex].answer2;
   li3button.textContent=quizQuestions[currentquestionIndex].answer3;
   li4button.textContent=quizQuestions[currentquestionIndex].answer4;
-};
+  };
 };
 
-// function declaration to check if the answer is correct or wrong 
+/** function declaration to check if the answer is correct or wrong
+ * 
+ * @param {*} event 
+ */ 
 function checkAnswers(event){
   var child = event.target; // variable declaration
   // console.log(child);
@@ -136,7 +146,7 @@ function checkAnswers(event){
   
   // to check if the answer is correct 
   if(child.innerText === quizQuestions[currentquestionIndex].correctAnswer){
-    console.log("You got it right!");
+    // console.log("You got it right!");
 
     answerMessage.setAttribute("style", "display:block"); // display answer correct/wrong section  
     answerMessage.textContent = "You got it right!"; // modify the text/attributes to show correct message
@@ -145,7 +155,7 @@ function checkAnswers(event){
 
   } else // to check if the answer is wrong 
   {
-    console.log("You got it wrong!");
+    // console.log("You got it wrong!");
 
     answerMessage.setAttribute("style", "display:block"); // display answer correct/wrong section  
     answerMessage.textContent = "You got it wrong!"; // modify the text/attributes to show wrong message 
@@ -156,11 +166,13 @@ function checkAnswers(event){
 
   currentquestionIndex++; // increase index to go to the next question
 
-  console.log(countdownTime);
-  console.log(quizScore);
+  // console.log(countdownTime);
+  // console.log(quizScore);
   };
 
-// function declaration to display the all done section
+/** function declaration to display the all done section
+ * 
+ */
 function displayalldoneSection(){
   welcomesectionEl.setAttribute("style", "display:none");  // hides the welcome section display
   questionsectionEl.setAttribute("style", "display:none"); // hides the questions and answers section
@@ -208,7 +220,7 @@ event.preventDefault();
   // store initals and quiz score to local storage 
   localStorage.setItem("Initials", JSON.stringify(initials.value));
   localStorage.setItem("QuizScore", JSON.stringify(quizScore));
-
+  // once submit button is clicked takes you to high score page
   window.location.href="highscores.html";
   };
 });
