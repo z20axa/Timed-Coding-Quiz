@@ -71,6 +71,8 @@ p {
 #question {
   font-size: 40px;
   text-align: center;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 /* styin for each answer choices */
@@ -78,7 +80,6 @@ p {
   font-size: 32px;
   text-align: center;
   list-style-position: inside;
-
 }
 
 /* intial form styling */
