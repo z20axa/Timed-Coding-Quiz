@@ -6,11 +6,13 @@ body{
 
 }
 
+/* heading styling */
 h1, h2 {
   font-size: 50px;
   text-align: center;
 }
 
+/* paragraph styling */
 p {
   font-size: 30px;
   text-align: center;
@@ -18,25 +20,30 @@ p {
   padding-right: 120px;
 }
 
+/* nag var high score link styling */
 #navbar {
   display: flex;
   justify-content: space-between;
 }
 
+/* high score link styling */
 #viewhighscoreHeader {
   font-size: 30px;
   margin-left: 50px;
 }
 
+/* displayed quiz countdown time styling */
 #timeHeader {
   font-size: 30px;
   margin-right: 50px;
 }
 
+/* display body main section */
 #mainSection {
   display: block;
 }
 
+/* display styling for welcome home buttons */
 #welcomebuttonSection {
   display: flex;
   justify-content: center;
@@ -54,17 +61,19 @@ p {
   background-color: purple;
 }
 
+/* hover styling for the question answer buttons */
 .answerButtons:hover {
   color: black;
   background-color: purple;
 }
 
-
+/* styling for each question */
 #question {
   font-size: 40px;
   text-align: center;
 }
 
+/* styin for each answer choices */
 #answers {
   font-size: 32px;
   text-align: center;
@@ -72,20 +81,24 @@ p {
 
 }
 
+/* intial form styling */
 #form {
   font-size: 30px;
   text-align: center;
 }
 
+/* highs score button styling */
 #highscorepageButtons {
   display: flex;
   justify-content: center;
 }
 
+/* initials styling */
 #initials {
   font-size: 30px;
 }
 
+/* questions right or wrong display message styling */
 #answerMessage {
   font-size: 30px;
   text-align: center;
