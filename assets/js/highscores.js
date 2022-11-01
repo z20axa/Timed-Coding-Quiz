@@ -2,7 +2,10 @@
 var highscoreSection = document.querySelector('#highscoreDisplay');
 var clearhighscoreButton = document.querySelector('#clearhighscoreButton');
 
-// function declaration to get the items from the local storage and for display
+/** function declaration to get the items from the local storage and for display
+ * 
+ * @returns 
+ */
 function renderquizScore(){
   var initials = JSON.parse(localStorage.getItem("Initials")); // get initals value from local storage
   var quizscore = JSON.parse(localStorage.getItem("QuizScore")); // get quiz score from local storage
