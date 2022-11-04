@@ -16,7 +16,7 @@ This is a password generator website using JavaScript code to create a password 
 
 ## Website Link
 
-<!-- Follow [Link](https://z20axa.github.io/Password-Generator/) -->
+Follow [Link](https://z20axa.github.io/Timed-Coding-Quiz/)
 
 ## Credits
 
