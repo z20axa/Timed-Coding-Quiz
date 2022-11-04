@@ -36,6 +36,6 @@ Follow [THIS LINK](https://z20axa.github.io/Timed-Coding-Quiz/)
 ## Deployed Website ScreenShot
 
 ![WebSite SreenShot1](Web_capture_3-11-2022_222415_.jpeg "WebSite ScreenShot1")
-![WebSite SreenShot2](Web_capture_3-11-2022_222453__.jpeg "WebSite ScreenShot2")
+![WebSite SreenShot2](Web_capture_3-11-2022_222453_.jpeg "WebSite ScreenShot2")
 ![WebSite SreenShot3](Web_capture_3-11-2022_222512_.jpeg "WebSite ScreenShot3")
 
