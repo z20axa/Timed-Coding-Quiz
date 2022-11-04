@@ -25,4 +25,5 @@ renderquizScore();
 // event listener to clear the local storage
 clearhighscoreButton.addEventListener('click', function(event){
     localStorage.clear(); // clears the local storage
+    location.reload(); // page refresh 
 });
