@@ -1,17 +1,24 @@
 # Timed-Coding-Quiz
 
-// Acceptance Criteria
-// GIVEN I am taking a code quiz
-// WHEN I click the start button
-// THEN a timer starts and I am presented with a question
-// WHEN I answer a question
-// THEN I am presented with another question
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over
-// WHEN the game is over
-// THEN I can save my initials and my score
+## Description
 
-// -------------------------------------------------------------------------------------------------------------------------------------------
-// -------------------------------------------------------------------------------------------------------------------------------------------
+This is a password generator website using JavaScript code to create a password that meets certain criteria from the user input for a strong password for greater security 
+
+## Usage 
+
+- 
+- 
+- 
+
+## Deployed Website ScreenShot
+
+<!-- ![WebSite SreenShot](Password_Geneator_WebSite_ScreenShot.jpeg "WebSite ScreenShot") -->
+
+## Website Link
+
+<!-- Follow [Link](https://z20axa.github.io/Password-Generator/) -->
+
+## Credits
+
+HTML and CSS files provided by UPENN BootCamp Course
+
